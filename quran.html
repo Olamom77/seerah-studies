@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qur'an Recitation — Sheikh As-Sudais</title>
+<meta name="description" content="Listen to Qur'an recitation by Sheikh Abdur-Rahman As-Sudais, Imam of the Grand Mosque in Mecca, with Arabic text and English/Yorùbá meaning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Literata:opsz,wght@18..144,400;600&family=Space+Mono&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .arabic {
+    font-family: "Scheherazade New", "Amiri", serif;
+    font-size: 1.9rem;
+    line-height: 2.1;
+    direction: rtl;
+    color: var(--teal-deep);
+    margin-bottom: 14px;
+  }
+  .surah-card {
+    background: #fffaf0;
+    border: 1px solid var(--parchment-deep);
+    border-top: 4px solid var(--maroon);
+    padding: 26px 26px 22px;
+    border-radius: 4px;
+    margin-bottom: 28px;
+  }
+  .surah-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .surah-head h3 { margin: 0; color: var(--teal-deep); }
+  .surah-head .surah-no {
+    font-family: var(--font-label);
+    font-size: 0.78rem;
+    color: var(--maroon);
+    letter-spacing: 0.05em;
+  }
+  audio { width: 100%; margin: 14px 0; }
+  .reciter-note {
+    font-family: var(--font-label);
+    font-size: 0.78rem;
+    color: var(--indigo);
+    margin-bottom: 4px;
+  }
+
+  /* Caption-style meaning display, modeled on bold subtitle overlays */
+  .meaning-caption {
+    background: var(--teal-deep);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-top: 6px;
+  }
+  .meaning-caption .cap-text {
+    font-family: "Literata", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.55;
+    color: #ffffff;
+    text-shadow:
+      -1.5px -1.5px 0 #000,
+       1.5px -1.5px 0 #000,
+      -1.5px  1.5px 0 #000,
+       1.5px  1.5px 0 #000,
+       0 2px 4px rgba(0,0,0,0.5);
+  }
+  .meaning-caption .cap-label {
+    color: var(--gold-bright);
+    font-weight: 800;
+  }
+
+  /* "Power of the Qur'an" feature: bold impact caption + illuminated verse box */
+  .power-verse { margin-bottom: 46px; }
+  .power-caption {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-size: 1.25rem;
+    line-height: 1.35;
+    text-align: center;
+    color: #ffffff;
+    background: var(--maroon);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 0 0 16px;
+    text-shadow:
+      -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000,
+      -1.5px  1.5px 0 #000, 1.5px  1.5px 0 #000;
+  }
+  .verse-box {
+    position: relative;
+    background:
+      radial-gradient(ellipse at top left, rgba(139,105,20,0.10), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(139,105,20,0.10), transparent 60%),
+      #f2e6bf;
+    border: 3px double #8b6914;
+    border-radius: 6px;
+    padding: 30px 24px;
+    box-shadow: inset 0 0 26px rgba(94,64,20,0.18);
+  }
+  .verse-box .arabic {
+    color: #2b1c10;
+    margin-bottom: 0;
+  }
+  .verse-box .ayah-mark { color: #a02020; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 24,16 37,16 26,24 30,37 20,29 10,37 14,24 3,16 16,16" stroke="#C9971C" stroke-width="1.6" fill="none"/>
+      </svg>
+      <span data-en="Seerah &amp; Studies" data-yo="Ìtàn &amp; Ẹ̀kọ́">Seerah &amp; Studies</span>
+    </a>
+    <nav class="links">
+      <a href="index.html" data-en="Home" data-yo="Ilé">Home</a>
+      <a href="seerah.html" data-en="The Seerah" data-yo="Ìtàn Àyè Anábì">The Seerah</a>
+      <a href="studies.html" data-en="Islamic Studies" data-yo="Ẹ̀kọ́ Islam">Islamic Studies</a>
+      <a href="quran.html" aria-current="page" data-en="Qur'an Recitation" data-yo="Kíkà Al-Ƙur'an">Qur'an Recitation</a>
+      <a href="https://mufit-anik-university.netlify.app/" target="_blank" rel="noopener" data-en="Mufit Anik University ↗" data-yo="Mufit Anik University ↗">Mufit Anik University ↗</a>
+    </nav>
+    <div class="controls">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="yo">YO</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero texture-indigo">
+  <svg class="corner-ornament tl" viewBox="0 0 160 160" fill="none">
+    <path d="M0 40 Q40 40 40 0" stroke="#E0B03E" stroke-width="1.5"/>
+    <path d="M0 80 Q80 80 80 0" stroke="#E0B03E" stroke-width="1"/>
+    <circle cx="40" cy="40" r="4" fill="#E0B03E"/>
+  </svg>
+  <div class="container">
+    <span class="eyebrow" data-en="Qur'an Recitation" data-yo="Kíkà Al-Ƙur'an">Qur'an Recitation</span>
+    <h1 data-en="Hear the Qur'an in the voice of the Imam of Mecca" data-yo="Gbọ́ Al-Ƙur'an ní ohùn Imam Mecca">Hear the Qur'an in the voice of the Imam of Mecca</h1>
+    <p class="lede" data-en="These recitations are by Sheikh Abdur-Rahman As-Sudais, the Chief Imam of the Grand Mosque (Masjid al-Haram) in Mecca — his actual voice, not a synthetic imitation. Recitation is always in the original Arabic; English and Yorùbá below give the meaning."
+       data-yo="Àwọn kíkà wọ̀nyí jẹ́ ti Sheikh Abdur-Rahman As-Sudais, Olórí Imam ti Mọ́sálásí Ńlá (Masjid al-Haram) ní Mecca — ohùn gidi rẹ̀ gan-an, kì í ṣe àfarawé. Kíkà máa ń jẹ́ ní Lárúbáwá ìpilẹ̀ṣẹ̀ nígbà gbogbo; Gẹ̀ẹ́sì àti Yorùbá nísàlẹ̀ ni ìtumọ̀ rẹ̀.">
+      These recitations are by Sheikh Abdur-Rahman As-Sudais, the Chief Imam of the Grand Mosque (Masjid al-Haram) in Mecca — his actual voice, not a synthetic imitation. Recitation is always in the original Arabic; English and Yorùbá below give the meaning.
+    </p>
+  </div>
+</section>
+
+<div class="container" style="padding-top: 40px;">
+
+  <div class="surah-card">
+    <div class="surah-head">
+      <h3 data-en="Al-Fatihah — The Opening" data-yo="Al-Fatihah — Ìṣílẹ̀kọ̀ọ̀kan">Al-Fatihah — The Opening</h3>
+      <span class="surah-no">Surah 1</span>
+    </div>
+    <p class="reciter-note" data-en="Recited by Sheikh As-Sudais" data-yo="Sheikh As-Sudais ló ń kà á">Recited by Sheikh As-Sudais</p>
+    <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾ مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾</div>
+    <audio controls preload="none">
+      <source src="https://server11.mp3quran.net/download/sds/001.mp3" type="audio/mpeg">
+    </audio>
+    <div class="meaning-caption">
+      <span class="cap-text"><span class="cap-label" data-en="Meaning &gt;" data-yo="Ìtumọ̀ &gt;">Meaning &gt;</span> <span data-en="In the name of God, the Most Gracious, the Most Merciful. Praise be to God, Lord of all worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship, and You alone we ask for help. Guide us on the straight path — the path of those You have blessed, not of those who earned Your anger, nor of those who went astray." data-yo="Ní orúkọ Ọlọ́run, Aláàánú Jùlọ, Aláàánú-Ẹ̀dá. Ọpẹ́ ni fún Ọlọ́run, Olúwa gbogbo àgbáyé. Aláàánú Jùlọ, Aláàánú-Ẹ̀dá. Ọba Ọjọ́ Ìdájọ́. Ìwọ nìkan ni a ń jọ́sìn, ìwọ nìkan sì ni a ń wá ìrànlọ́wọ́ lọ́dọ̀. Ṣe amọ̀nà wa sí ọ̀nà tí ó tọ́ — ọ̀nà àwọn tí O ti bùkún fún, kì í ṣe ti àwọn tí O bínú sí, tàbí àwọn tí ó ṣìnà.">In the name of God, the Most Gracious, the Most Merciful. Praise be to God, Lord of all worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship, and You alone we ask for help. Guide us on the straight path — the path of those You have blessed, not of those who earned Your anger, nor of those who went astray.</span></span>
+    </div>
+  </div>
+
+  <div class="surah-card">
+    <div class="surah-head">
+      <h3 data-en="Al-Ikhlas — Sincerity" data-yo="Al-Ikhlas — Ìwà Òdodo">Al-Ikhlas — Sincerity</h3>
+      <span class="surah-no">Surah 112</span>
+    </div>
+    <p class="reciter-note" data-en="Recited by Sheikh As-Sudais" data-yo="Sheikh As-Sudais ló ń kà á">Recited by Sheikh As-Sudais</p>
+    <div class="arabic">قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ ﴿٤﴾</div>
+    <audio controls preload="none">
+      <source src="https://server11.mp3quran.net/download/sds/112.mp3" type="audio/mpeg">
+    </audio>
+    <div class="meaning-caption">
+      <span class="cap-text"><span class="cap-label" data-en="Meaning &gt;" data-yo="Ìtumọ̀ &gt;">Meaning &gt;</span> <span data-en="Say: He is God, the One. God, the Eternal Refuge. He neither begets nor is born. And there is none comparable to Him." data-yo="Sọ pé: Òun ni Ọlọ́run, Ẹnìkan Ṣoṣo. Ọlọ́run, Ibi Ìsádi Ayérayé. Kò bí ẹnikẹ́ni, a kò sì bí i. Kò sì sí ẹni kan tí ó dàbí I.">Say: He is God, the One. God, the Eternal Refuge. He neither begets nor is born. And there is none comparable to Him.</span></span>
+    </div>
+  </div>
+
+  <div class="surah-card">
+    <div class="surah-head">
+      <h3 data-en="Al-Falaq — The Daybreak" data-yo="Al-Falaq — Àfẹ̀mọ́júmọ́">Al-Falaq — The Daybreak</h3>
+      <span class="surah-no">Surah 113</span>
+    </div>
+    <p class="reciter-note" data-en="Recited by Sheikh As-Sudais" data-yo="Sheikh As-Sudais ló ń kà á">Recited by Sheikh As-Sudais</p>
+    <div class="arabic">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِنْ شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾</div>
+    <audio controls preload="none">
+      <source src="https://server11.mp3quran.net/download/sds/113.mp3" type="audio/mpeg">
+    </audio>
+    <div class="meaning-caption">
+      <span class="cap-text"><span class="cap-label" data-en="Meaning &gt;" data-yo="Ìtumọ̀ &gt;">Meaning &gt;</span> <span data-en="Say: I seek refuge in the Lord of the daybreak, from the evil of what He created, from the evil of darkness when it settles, from the evil of those who blow on knots, and from the evil of an envier when he envies." data-yo="Sọ pé: Mo wá ààbò lọ́dọ̀ Olúwa àfẹ̀mọ́júmọ́, kúrò nínú ibi ohun tí Ó dá, kúrò nínú ibi òkùnkùn nígbà tí ó bá bò dé, kúrò nínú ibi àwọn tí ń fẹ́ sí orí okùn, àti kúrò nínú ibi ẹni ìlara nígbà tí ó bá ń ṣe ìlara.">Say: I seek refuge in the Lord of the daybreak, from the evil of what He created, from the evil of darkness when it settles, from the evil of those who blow on knots, and from the evil of an envier when he envies.</span></span>
+    </div>
+  </div>
+
+  <div class="surah-card">
+    <div class="surah-head">
+      <h3 data-en="An-Nas — Mankind" data-yo="An-Nas — Ẹ̀dá Ènìyàn">An-Nas — Mankind</h3>
+      <span class="surah-no">Surah 114</span>
+    </div>
+    <p class="reciter-note" data-en="Recited by Sheikh As-Sudais" data-yo="Sheikh As-Sudais ló ń kà á">Recited by Sheikh As-Sudais</p>
+    <div class="arabic">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَٰهِ النَّاسِ ﴿٣﴾ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾</div>
+    <audio controls preload="none">
+      <source src="https://server11.mp3quran.net/download/sds/114.mp3" type="audio/mpeg">
+    </audio>
+    <div class="meaning-caption">
+      <span class="cap-text"><span class="cap-label" data-en="Meaning &gt;" data-yo="Ìtumọ̀ &gt;">Meaning &gt;</span> <span data-en="Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind, from the evil of the retreating whisperer, who whispers in the hearts of mankind, from among the jinn and mankind." data-yo="Sọ pé: Mo wá ààbò lọ́dọ̀ Olúwa ẹ̀dá ènìyàn, Ọba ẹ̀dá ènìyàn, Ọlọ́run ẹ̀dá ènìyàn, kúrò nínú ibi ẹni tí ń sọ̀rọ̀ sínú tí ń padà sẹ́yìn, tí ń sọ̀rọ̀ sínú ọkàn àwọn ènìyàn, láàrin àwọn àlùjànnú àti ènìyàn.">Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind, from the evil of the retreating whisperer, who whispers in the hearts of mankind, from among the jinn and mankind.</span></span>
+    </div>
+  </div>
+
+  <section class="topic-block" id="power-verses">
+    <span class="section-kicker" data-en="Verses that move the heart" data-yo="Ẹsẹ tí ń fọwọ́ kan ọkàn">Verses that move the heart</span>
+    <h2 data-en="The Power of the Qur'an" data-yo="Agbára Al-Ƙur'an">The Power of the Qur'an</h2>
+
+    <div class="power-verse">
+      <p class="power-caption" data-en="Whoever fears Allah, He will make a way out for him" data-yo="Ẹnikẹ́ni tí ó bá bẹ̀rù Ọlọ́run, Yóò ṣí ọ̀nà sílẹ̀ fún un">Whoever fears Allah, He will make a way out for him</p>
+      <div class="verse-box">
+        <div class="arabic">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا <span class="ayah-mark">﴿٢﴾</span> وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ ۚ وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ۚ إِنَّ اللَّهَ بَالِغُ أَمْرِهِ ۚ قَدْ جَعَلَ اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا <span class="ayah-mark">﴿٣﴾</span></div>
+      </div>
+      <div class="meaning-caption" style="margin-top: 16px;">
+        <span class="cap-text"><span class="cap-label" data-en="Meaning &gt;" data-yo="Ìtumọ̀ &gt;">Meaning &gt;</span> <span data-en="Whoever fears Allah, He will make a way out for him, and provide for him from where he does not expect. And whoever relies upon Allah, He is sufficient for him. Indeed, Allah will accomplish His purpose. Allah has already set a measure for all things. — Surah At-Talaq 65:2–3" data-yo="Ẹnikẹ́ni tí ó bá bẹ̀rù Ọlọ́run, Yóò ṣí ọ̀nà sílẹ̀ fún un, yóò sì pèsè fún un láti ibi tí kò ti retí. Ẹnikẹ́ni tí ó bá sì gbáralé Ọlọ́run, Òun ni yóò tó fún un. Ní tòótọ́, Ọlọ́run yóò mú ète Rẹ̀ ṣẹ. Ọlọ́run ti ṣètò ìwọ̀n fún ohun gbogbo. — Surah At-Talaq 65:2–3">Whoever fears Allah, He will make a way out for him, and provide for him from where he does not expect. And whoever relies upon Allah, He is sufficient for him. Indeed, Allah will accomplish His purpose. Allah has already set a measure for all things. — Surah At-Talaq 65:2–3</span></span>
+      </div>
+    </div>
+
+    <div class="power-verse">
+      <p class="power-caption" data-en="For indeed, with hardship comes ease" data-yo="Nítòótọ́, pẹ̀lú ìṣòro ni ìrọ̀rùn wà">For indeed, with hardship comes ease</p>
+      <div class="verse-box">
+        <div class="arabic">فَإِنَّ مَعَ الْعُسْرِ يُسْرًا <span class="ayah-mark">﴿٥﴾</span> إِنَّ مَعَ الْعُسْرِ يُسْرًا <span class="ayah-mark">﴿٦﴾</span></div>
+      </div>
+      <div class="meaning-caption" style="margin-top: 16px;">
+        <span class="cap-text"><span class="cap-label" data-en="Meaning &gt;" data-yo="Ìtumọ̀ &gt;">Meaning &gt;</span> <span data-en="For indeed, with hardship comes ease. Indeed, with hardship comes ease. — Surah Ash-Sharh 94:5–6" data-yo="Nítòótọ́, pẹ̀lú ìṣòro ni ìrọ̀rùn wà. Nítòótọ́, pẹ̀lú ìṣòro ni ìrọ̀rùn wà. — Surah Ash-Sharh 94:5–6">For indeed, with hardship comes ease. Indeed, with hardship comes ease. — Surah Ash-Sharh 94:5–6</span></span>
+      </div>
+    </div>
+
+    <div class="power-verse">
+      <p class="power-caption" data-en="Allah does not burden a soul beyond what it can bear" data-yo="Ọlọ́run kì í dá ẹrù tí ó pọ̀ jù lé ẹnikẹ́ni lórí ju bí agbára rẹ̀ ti tó">Allah does not burden a soul beyond what it can bear</p>
+      <div class="verse-box">
+        <div class="arabic">لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا</div>
+      </div>
+      <div class="meaning-caption" style="margin-top: 16px;">
+        <span class="cap-text"><span class="cap-label" data-en="Meaning &gt;" data-yo="Ìtumọ̀ &gt;">Meaning &gt;</span> <span data-en="Allah does not burden a soul beyond what it can bear. — Surah Al-Baqarah 2:286" data-yo="Ọlọ́run kì í dá ẹrù tí ó pọ̀ jù lé ẹnikẹ́ni lórí ju bí agbára rẹ̀ ti tó. — Surah Al-Baqarah 2:286">Allah does not burden a soul beyond what it can bear. — Surah Al-Baqarah 2:286</span></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="note-box" data-en="Audio is streamed directly from mp3quran.net, a public Qur'an audio archive — nothing is hosted on this site's own server. If a clip doesn't play, check your connection or try again in a moment."
+       data-yo="A ń gbé ohùn yìí wá tààrà láti mp3quran.net, ilé ìpamọ́ ohùn Al-Ƙur'an gbogbogbò — a kò fi pamọ́ sí orí sábà ojúewé yìí fúnra rẹ̀. Bí fídíò kan kò bá ṣiṣẹ́, ṣàyẹ̀wò ìjápọ̀ íńtánẹ́ẹ̀tì rẹ tàbí gbìyànjú lẹ́ẹ̀kan sí i.">
+    Audio is streamed directly from mp3quran.net, a public Qur'an audio archive — nothing is hosted on this site's own server. If a clip doesn't play, check your connection or try again in a moment.
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p data-en="Continue exploring the fundamentals of Islamic Studies." data-yo="Tẹ̀síwájú láti wo ìpìlẹ̀ Ẹ̀kọ́ Islam.">Continue exploring the fundamentals of Islamic Studies.</p>
+  <p><a href="studies.html" data-en="Islamic Studies →" data-yo="Ẹ̀kọ́ Islam →">Islamic Studies →</a></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
